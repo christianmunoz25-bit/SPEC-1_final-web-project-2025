@@ -1,0 +1,251 @@
+body {
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle at top,#03c2fc,#1E2430);
+    margin: 0;
+    overflow: auto;
+    font-weight: bold;
+    
+}
+
+.flashcard-container {
+     background: linear-gradient(135deg, #4550a3, #132080);
+    border-radius: 22px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.55);
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 550px;
+    padding: 24px 28px 20px;
+    backdrop-filter: blur (6px);
+}
+
+.flashcard-container h1 {
+    text-align: center;
+    width: 100%;
+    margin: 8px 0 16px;
+    letter-spacing: 3px;
+    font-size: 1.6rem;
+    color: #2EC4B6;
+    font-family: monospace;
+    text-shadow: 0 0 12px rgba(46,196,182,0.4);
+}
+
+
+.filter-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+    margin-bottom: 24px;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.filter-controls label {
+    font-size: 0.9rem;
+    color: white;
+}
+
+label {
+    color: black;
+}
+
+#filter {
+    flex: 1;
+    border-radius: 8px;
+    border: 1px solid black;
+    margin-right: 10px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+
+.flashcard {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    
+   
+    -webkit-transform-style: preserve-3d !important;
+    transform-style: preserve-3d !important;
+    -webkit-perspective: 1000px !important;
+    perspective: 1000px !important;
+    
+    transition: transform 0.6s; 
+    margin: 16px 0 20px;
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    
+    
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important; 
+    
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5em;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.front {
+    background:linear-gradient(135deg, #2EC4B6, #3A86FF);
+    color: white;
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.back {
+    background-color: #ffffff;
+    transform: rotateY(180deg); 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 1.2em;
+}
+
+.flashcard.is-flipped {
+   
+    -webkit-transform: rotateY(180deg) !important;
+    transform: rotateY(180deg) !important; 
+}
+
+/* IMAGE */
+.card-image {
+    max-width: 100%;
+    max-height: 180px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+#answer {
+    margin-top: auto;
+    font-weight: bold;
+    color: #333;
+}
+
+.front p#question,
+.back p#answer {
+    margin: 0;
+    line-height: 1.4;
+    color: black;
+}
+
+
+.main-controls-wrapper {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 16px;
+}
+
+.guess-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+#user-guess {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 25px;
+    font-size: 1em;
+    text-align: center;
+    border-color: #2EC4B6;
+    box-shadow: 0 0 0 3px rgba(46,196,182,0.35);
+    border: 2px solid #2EC4B6;
+}
+
+#check-guess {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #3A86FF, #2EC4B6);
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    min-width: 120px;
+}
+
+
+.button-row {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 15px;
+    width: 100%;
+    margin-top: 0;
+}
+
+button {
+    flex-grow: 1;
+    margin: 0;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 25px;
+    background-color:#FF7A45;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    max-width: 45%; 
+}
+
+#next-card {
+    background: linear-gradient(135deg, #4CAF50, #2EC4B6);
+}
+
+button:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+#create-card-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    color: black;
+}
+
+
+#create-card-form input[type="text"],
+#create-card-form input[type="url"] {
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 2px solid #333;
+    background: white;
+    font-size: 1.1rem;
+}
